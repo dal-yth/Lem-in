@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:25:49 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/27 19:29:36 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 08:12:22 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	show_structs(t_lem *core)
 	x = 1;
 	ft_dprintf(FLAG->write_fd, "%{RED}DATA structs:%{EOC}\n");
 	ft_dprintf(FLAG->write_fd, "Rooms are represented by id's from 0 to %d\n", LASTROOM);
-	ft_dprintf(FLAG->write_fd, "[ROOM]:[(A)DJACENT, (F)LOW][...\n");
+	ft_dprintf(FLAG->write_fd, "[ROOM id]:[(A)DJACENT, (F)LOW][...\n");
 	while (y < DATA->rooms)
 	{
 		ft_dprintf(FLAG->write_fd, "[ROOM %2d]:", LINK->adj[y][0]);

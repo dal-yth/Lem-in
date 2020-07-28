@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:15:32 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/27 21:05:11 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 08:09:56 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	show_help(void)
 {
-	ft_printf("%{RED}Usage:%{EOC} ./lem-in < file.map");
+	ft_printf("%{RED}Usage:%{EOC} ./lem-in < file.map ");
 	ft_printf("%{RED}OR%{EOC} ./lem-in file.map\n");
 	ft_printf("%{GREEN}Options:%{EOC}\n");
 	ft_printf(" -h, --help\t\tDisplays help.\n");
