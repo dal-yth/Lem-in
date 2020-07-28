@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:09:08 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/28 07:57:09 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 07:58:01 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int		check_if_best(t_lem *core)
 {
 	int x;
 
-	i = 1;
+	x = 1;
 	while (LINK->adj[0][x] != -1)
 	{
 		if (LINK->adj[0][x] == LASTROOM)
