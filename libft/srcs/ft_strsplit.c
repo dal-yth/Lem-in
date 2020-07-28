@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmakela <jmakela@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 13:31:04 by jmakela           #+#    #+#             */
-/*   Updated: 2020/02/14 18:13:40 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 08:04:32 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,8 @@ static char		**ft_make_arr(char **arr, char const *s, char c)
 
 char			**ft_strsplit(char const *s, char c)
 {
-	size_t	j;
-	size_t	i;
 	char	**arr;
 
-	j = 0;
-	i = 0;
 	if (!s || (!(arr = (char **)malloc(sizeof(char *) * (ft_count(s, c) + 1)))))
 		return (NULL);
 	arr = ft_make_arr(arr, s, c);
