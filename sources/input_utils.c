@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:12:43 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/27 22:24:17 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 07:58:44 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ void	verify_rooms(t_lem *core)
 {
 	int i;
 	int j;
-	int k;
 
 	i = 0;
 	if (DATA->ants > INTMAX)
