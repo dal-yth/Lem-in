@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:09:08 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/27 22:31:30 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 07:57:09 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,7 @@ void	init_paths(t_lem *core, int i)
 int		check_if_best(t_lem *core)
 {
 	int x;
-	int i;
 
-	x = 1;
 	i = 1;
 	while (LINK->adj[0][x] != -1)
 	{
