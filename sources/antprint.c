@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 14:41:28 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/27 20:02:47 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 08:02:03 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	do_best_moves(t_lem *core)
 	int i;
 
 	i = 0;
-	while (i <= DATA->ants)
+	while (i <= (int)DATA->ants)
 	{
 		ft_dprintf(FLAG->write_fd, "L%d-%s ", i, ROOM[LASTROOM]->name);
 		i += 1;
@@ -110,7 +110,7 @@ void	save_to_antprint(t_lem *core, int ant, char *room)
 	char	*temp;
 
 	len = move_len(ant, room);
-	if (LINK->mem > (LINK->pos + len))
+	if ((LINK->pos + len) < (int)LINK->mem)
 		write_to_antprint(core, ant, room, 0);
 	else
 	{
