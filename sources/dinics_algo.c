@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:04:34 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/27 22:31:01 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 07:56:02 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,6 @@ int			verify_path(t_lem *core, int y)
 
 int			good_choice(t_lem *core, int y, int x, int z)
 {
-	int w;
-	int good;
-
-	good = 0;
-	w = 0;
 	if (ROOM[y]->level + 1 == ROOM[LINK->adj[y][x]]->level &&
 		LINK->dinic[y][x] <= 0)
 	{
@@ -164,11 +159,6 @@ int			dfs(t_lem *core, int y)
 
 void		algo(t_lem *core)
 {
-	int total;
-	int i;
-
-	i = 0;
-	total = 0;
 	init_queue(core);
 	create_dinics(core);
 	DATA->flow = 0;
