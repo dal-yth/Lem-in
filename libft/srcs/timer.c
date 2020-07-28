@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 16:07:17 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/17 11:09:42 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 19:20:04 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ double	timer(t_clock *time, int start)
 	}
 	else
 		ft_dprintf(2, "Wrong start/end value\n");
-	return(0);
+	return (0);
 }
