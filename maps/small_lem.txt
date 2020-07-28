@@ -1,0 +1,32 @@
+#test
+10
+##start
+S 0 0
+##end
+E 8 8
+room0 1 2
+room1 2 1
+room2 2 4
+room3 3 3
+room4 4 3
+room5 5 3
+room6 4 6
+room7 6 5
+room0-room1
+room0-S
+room0-room2
+room0-room4
+room1-room2
+room1-room6
+room1-room5
+room2-room4
+room3-room1
+room3-S
+room3-room6
+room4-room6
+room4-E
+room5-room7
+room7-E
+room6-room2
+room6-room7
+room6-room7
