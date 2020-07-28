@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:18:19 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/27 22:31:41 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 08:00:10 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ants_in_hill(t_lem *core, int bucket)
 
 	y = 0;
 	x = 1;
-	if (ROOM[0]->ant <= DATA->ants)
+	if (ROOM[0]->ant <= (int)DATA->ants)
 		return (1);
 	while (y < LINK->amount[bucket])
 	{
@@ -68,7 +68,7 @@ int		do_first_nodes(t_lem *core, int bucket, int *lens)
 	int y;
 
 	y = 0;
-	if (ROOM[0]->ant > DATA->ants)
+	if (ROOM[0]->ant > (int)DATA->ants)
 		return (0);
 	while (y < LINK->amount[bucket])
 	{
