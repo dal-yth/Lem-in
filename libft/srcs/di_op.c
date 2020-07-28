@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 18:06:17 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/25 16:20:24 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 19:08:25 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,8 @@ t_printf		*di_op(t_printf *pf)
 		get_asterisk(pf);
 	if (pf->type == 'D')
 		pf->nbr = (long int)va_arg(pf->args, long int);
-	//else if (pf->length[0] == 'j')
-	//	pf->nbr = (intmax_t)va_arg(pf->args, intmax_t);
+	else if (pf->length[0] == 'j')
+		pf->nbr = (intmax_t)va_arg(pf->args, intmax_t);
 	else if (pf->length[0] == 'z')
 		pf->nbr = (size_t)va_arg(pf->args, size_t);
 	else if (ft_strcmp(pf->length, "h") == 0)

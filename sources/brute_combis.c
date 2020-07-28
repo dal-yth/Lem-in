@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   brute_combis.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/26 15:22:25 by jmakela           #+#    #+#             */
+/*   Updated: 2020/07/28 14:52:33 by jmakela          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "lem_in.h"
 
 /*
@@ -49,7 +61,8 @@ void	organize_brute(t_lem *core)
 	{
 		while (BRUTE->chosen[x] != -1)
 		{
-			if (BRUTE->brute[BRUTE->chosen[y]][0] > BRUTE->brute[BRUTE->chosen[x]][0])
+			if (BRUTE->brute[BRUTE->chosen[y]][0] >
+				BRUTE->brute[BRUTE->chosen[x]][0])
 			{
 				temp = BRUTE->chosen[y];
 				BRUTE->chosen[y] = BRUTE->chosen[x];

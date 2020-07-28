@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:09:08 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/28 07:58:01 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 19:02:06 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ int		check_if_best(t_lem *core)
 			FLAG->brute = timer(core->time, 3);
 			FLAG->ants = timer(core->time, 3);
 			FLAG->total = timer(core->time, 4);
-			return (1);	
+			return (1);
 		}
 		x += 1;
 	}

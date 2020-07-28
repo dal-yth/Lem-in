@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 12:13:42 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/08 23:26:27 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 19:10:00 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <fcntl.h>
+# include <stdint.h>
 # include "color.h"
 # include "timer.h"
 # include "ft_printf.h"

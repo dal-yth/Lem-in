@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:44:43 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/27 22:38:43 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 18:55:51 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ typedef struct			s_link
 ** For more information about flags: ./lem_in -h
 */
 
-typedef struct		s_flag
+typedef struct			s_flag
 {
 	int					debug;
 	int					minimal;
@@ -214,7 +214,6 @@ void					init_queue(t_lem *core);
 int						check_queue(t_lem *core, int from, int to, int user);
 void					reset_bfs(t_lem *core);
 void					create_dinics(t_lem *core);
-
 
 /*
 ** Path functions

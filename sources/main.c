@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:15:32 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/28 08:09:56 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 19:03:41 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ void	check_args(t_lem *core, int argc, char **argv, int i)
 		else if (!core->fd)
 		{
 			core->fd = open(argv[i], O_RDONLY, 0777);
-			if (core->fd == -1)
-				ft_error("Argument error! ./lem_in -h for help.");
+			(core->fd == -1) ? ft_error("Argument error! ./lem_in -h for help.") : 0;
 		}
 		else
 			ft_error("Argument error! ./lem_in -h for help.");

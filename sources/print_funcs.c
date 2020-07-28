@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:25:49 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/28 08:12:22 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 19:05:39 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		print_all_paths(t_lem *core, int x, int i, int z)
 	while (z < LINK->amount[DATA->best_bucket])
 	{
 		ft_dprintf(FLAG->write_fd, "%{GREEN}Path %d: len = %d%{EOC}\n%s, ",
-					z + 1, LINK->all_paths[DATA->best_bucket][z][0], ROOM[0]->name);
+			z + 1, LINK->all_paths[DATA->best_bucket][z][0], ROOM[0]->name);
 		while (LINK->all_paths[DATA->best_bucket][z][x] != LASTROOM)
 		{
 			ft_dprintf(FLAG->write_fd, "%s, ",
@@ -56,14 +56,16 @@ void	show_structs(t_lem *core)
 	y = 0;
 	x = 1;
 	ft_dprintf(FLAG->write_fd, "%{RED}DATA structs:%{EOC}\n");
-	ft_dprintf(FLAG->write_fd, "Rooms are represented by id's from 0 to %d\n", LASTROOM);
+	ft_dprintf(FLAG->write_fd, "Rooms are represented by id's from 0 to %d\n",
+				LASTROOM);
 	ft_dprintf(FLAG->write_fd, "[ROOM id]:[(A)DJACENT, (F)LOW][...\n");
 	while (y < DATA->rooms)
 	{
 		ft_dprintf(FLAG->write_fd, "[ROOM %2d]:", LINK->adj[y][0]);
 		while (LINK->adj[y][x] != -1)
 		{
-			ft_dprintf(FLAG->write_fd, "[A%d,F%d]", LINK->adj[y][x], LINK->dinic[y][x]);
+			ft_dprintf(FLAG->write_fd, "[A%d,F%d]", LINK->adj[y][x],
+						LINK->dinic[y][x]);
 			x += 1;
 		}
 		ft_dprintf(FLAG->write_fd, "\n");
