@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 14:53:55 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/27 22:30:34 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 19:14:56 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,8 @@ void		save_links(t_lem *core, int dest, int link, int i)
 ** and save coordinates of the room.
 */
 
-void		save_rooms(t_lem *core)
+void		save_rooms(t_lem *core, int i, int cnt)
 {
-	int i;
-	int cnt;
-
-	i = DATA->roompos;
-	cnt = 1;
 	while (i < DATA->linkpos)
 	{
 		if (DATA->input[i] == '#')
@@ -163,7 +158,7 @@ void		data_structs(t_lem *core)
 	if (!(LINK->adj = (int**)malloc(sizeof(int*) * DATA->rooms)))
 		ft_error("Malloc error");
 	fill_rooms(core);
-	save_rooms(core);
+	save_rooms(core, DATA->roompos, 1);
 	verify_rooms(core);
 	check_coords(core);
 	save_links(core, -1, -1, 0);

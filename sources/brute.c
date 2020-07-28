@@ -6,7 +6,7 @@
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 15:16:25 by jmakela           #+#    #+#             */
-/*   Updated: 2020/07/28 18:58:33 by jmakela          ###   ########.fr       */
+/*   Updated: 2020/07/28 19:13:48 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	save_brute_bucket(t_lem *core, int i, int x)
 {
 	while (BRUTE->best_choice[i] != -1)
 	{
-		if (!(LINK->all_paths[LINK->bucket][i] = (int*)malloc(sizeof(int) * 
+		if (!(LINK->all_paths[LINK->bucket][i] = (int*)malloc(sizeof(int) *
 			(BRUTE->brute[BRUTE->best_choice[i]][0] + 1))))
 			ft_error("Malloc error");
 		while (BRUTE->brute[BRUTE->best_choice[i]][x] != LASTROOM)
