@@ -22,7 +22,7 @@ void			stop_check(t_lem *core, int i)
 {
 	while (DATA->input[i])
 	{
-		if (DATA->input[i] && DATA->input[i] == '#' &&
+		if (DATA->input[i] && DATA->input[i] == '#' && \
 			DATA->input[i - 1] == '\n')
 			i += skip_comment(core, i);
 		if (DATA->input[i] == '\n' && DATA->input[i + 1] == '\n')
@@ -60,7 +60,7 @@ int				check_ants(t_lem *core, int i)
 	{
 		if (DATA->input[i] == '#')
 			i += skip_comment(core, i);
-		else if (ft_isdigit(DATA->input[i]) && (i == 0 ||
+		else if (ft_isdigit(DATA->input[i]) && (i == 0 || \
 				DATA->input[i - 1] == '\n'))
 		{
 			(DATA->input[i] == '0') ? ft_error("Ants error") : 0;

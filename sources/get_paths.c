@@ -42,7 +42,7 @@ void	save_path(t_lem *core, int i)
 
 	x = 1;
 	z = 1;
-	if (!(LINK->all_paths[LINK->bucket][LINK->cnt] =
+	if (!(LINK->all_paths[LINK->bucket][LINK->cnt] = \
 		(int*)malloc(sizeof(int) * i)))
 		ft_error("Malloc error");
 	LINK->all_paths[LINK->bucket][LINK->cnt][0] = i - 1;

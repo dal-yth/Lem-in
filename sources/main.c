@@ -26,6 +26,7 @@ void	show_help(void)
 	ft_printf(" -p, --paths\t\tDisplays all used paths.\n");
 	ft_printf(" -m, --minimal\t\tDisplays only other chosen options.\n");
 	ft_printf(" -a, --no_ants\t\tDoes not display ant movements.\n");
+	ft_printf(" -s, --data_structure\t\tDisplays data structure.\n");
 	ft_printf(" -w, --write\t\tDisplays nothing, ");
 	ft_printf("writes the result into \"result.txt\"\n");
 	exit(0);

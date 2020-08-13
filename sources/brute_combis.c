@@ -61,7 +61,7 @@ void	organize_brute(t_lem *core)
 	{
 		while (BRUTE->chosen[x] != -1)
 		{
-			if (BRUTE->brute[BRUTE->chosen[y]][0] >
+			if (BRUTE->brute[BRUTE->chosen[y]][0] > \
 				BRUTE->brute[BRUTE->chosen[x]][0])
 			{
 				temp = BRUTE->chosen[y];

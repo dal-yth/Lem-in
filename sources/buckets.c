@@ -31,7 +31,7 @@ int			bucket_dfs(t_lem *core, int y, int i)
 	}
 	while (LINK->adj[y][x] != -1)
 	{
-		if (LINK->dinic[y][x] == 1 && LINK->visited[LINK->adj[y][x]] == 0 &&
+		if (LINK->dinic[y][x] == 1 && LINK->visited[LINK->adj[y][x]] == 0 && \
 			ROOM[y]->level + 1 == ROOM[LINK->adj[y][x]]->level)
 		{
 			LINK->path[i] = LINK->adj[y][x];
@@ -110,6 +110,41 @@ void		first_bucket(t_lem *core)
 }
 
 /*
+** Counts how many rooms have input and/or output forks.
+** This number is used to determine if we want to use bruteforce
+** or not.
+*/
+
+int			show_input_output(t_lem *core, int y, int x)
+{
+	int cntout;
+	int cntin;
+	int fork;
+
+	fork = 0;
+	cntin = 0;
+	cntout = 0;
+	while (y < DATA->rooms)
+	{
+		while (LINK->adj[y][x] != -1)
+		{
+			if (LINK->dinic[y][x] == 1)
+				cntout += 1;
+			if (LINK->dinic[y][x] == -1)
+				cntin += 1;
+			x += 1;
+		}
+		if (cntout > 1 || cntin > 1)
+			fork += 1;
+		cntout = 0;
+		cntin = 0;
+		x = 1;
+		y += 1;
+	}
+	return (fork);
+}
+
+/*
 ** Start of bucket functions.
 ** Calls all different pathfinders to
 ** hopefully find the best combination of
@@ -120,10 +155,14 @@ void		first_bucket(t_lem *core)
 
 void		get_buckets(t_lem *core)
 {
+	int fork;
+
 	first_bucket(core);
 	adjacent_buckets(core);
 	FLAG->routes = timer(core->time, 3);
 	timer(core->time, 2);
-	brute(core);
+	fork = show_input_output(core, 0, 1);
+	if (fork < 200)
+		brute(core);
 	FLAG->brute = timer(core->time, 3);
 }

@@ -36,7 +36,7 @@ int			bfs(t_lem *core, int user, int i)
 			if (check_queue(core, LINK->queue[y], x, user))
 			{
 				LINK->queue[i] = LINK->adj[LINK->queue[y]][x];
-				ROOM[LINK->adj[LINK->queue[y]][x]]->level =
+				ROOM[LINK->adj[LINK->queue[y]][x]]->level = \
 				ROOM[LINK->queue[y]]->level + 1;
 				ROOM[LINK->adj[LINK->queue[y]][x]]->queue = 1;
 				i += 1;
@@ -97,12 +97,12 @@ int			good_choice(t_lem *core, int y, int x, int z)
 	if (ROOM[y]->level + 1 == ROOM[LINK->adj[y][x]]->level &&
 		LINK->dinic[y][x] <= 0)
 	{
-		if (ROOM[LINK->adj[y][x]]->flow == 0 ||
+		if (ROOM[LINK->adj[y][x]]->flow == 0 || \
 			LINK->adj[y][x] == LASTROOM)
 			return (1);
 		while (LINK->adj[y][z] != -1)
 		{
-			if (ROOM[y]->level + 1 == ROOM[LINK->adj[y][z]]->level
+			if (ROOM[y]->level + 1 == ROOM[LINK->adj[y][z]]->level \
 				&& LINK->dinic[y][z] <= 0 && z != x)
 				if (ROOM[LINK->adj[y][z]]->flow == 0)
 					if (verify_path(core, LINK->adj[y][z]))

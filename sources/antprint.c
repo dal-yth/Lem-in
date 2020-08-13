@@ -104,19 +104,27 @@ int		write_to_antprint(t_lem *core, int ant, char *room, int i)
 ** and set to be the temp string.
 */
 
-void	save_to_antprint(t_lem *core, int ant, char *room)
+void	save_to_antprint(t_lem *core, int ant, char *room, int len)
 {
-	int		len;
 	char	*temp;
 
 	len = move_len(ant, room);
-	if ((LINK->pos + len) < (int)LINK->mem)
+	if ((LINK->pos + len) < LINK->mem)
 		write_to_antprint(core, ant, room, 0);
 	else
 	{
 		LINK->antprint[LINK->pos] = '\0';
-		if (!(temp = (char*)malloc(sizeof(char) * LINK->pos + len + 1)))
-			ft_error("Malloc error");
+		if (LINK->overdrive)
+		{
+			if (!(temp = (char*)malloc(sizeof(char) * LINK->pos + \
+						len + MALLOC_MAX)))
+				ft_error("Malloc error");
+		}
+		else
+		{
+			if (!(temp = (char*)malloc(sizeof(char) * LINK->pos + len + 1)))
+				ft_error("Malloc error");
+		}
 		LINK->mem = LINK->pos + len + 1;
 		temp = ft_strcpy(temp, LINK->antprint);
 		ft_strdel(&LINK->antprint);

@@ -18,6 +18,7 @@
 ** Defines for readability.
 */
 
+# define MALLOC_MAX		100000000000000
 # define INTMAX			2147483647
 # define LASTROOM		core->data->rooms -1
 # define DATA			core->data
@@ -125,9 +126,10 @@ typedef struct			s_link
 	double				*moves;
 	int					*amount;
 	char				*antprint;
-	int					pos;
+	unsigned long int	pos;
 	unsigned long int	mem;
 	int					rowcnt;
+	int					overdrive;
 }						t_link;
 
 /*
@@ -246,12 +248,14 @@ void					empty_chosen(t_lem *core);
 void					allocate_brute(t_lem *core);
 
 /*
-** Ants functions
+** Ants moving functions
 */
 
-void					save_to_antprint(t_lem *core, int ant, char *room);
+void					save_to_antprint(t_lem *core, int ant,\
+										char *room, int len);
 int						pick_bucket(t_lem *core);
 int						*get_lens(t_lem *core, int bucket, int y);
+void					init_move(t_lem *core);
 
 /*
 ** Utilities

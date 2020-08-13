@@ -79,7 +79,7 @@ void	allocate_brute(t_lem *core)
 	LINK->path[0] = 0;
 	if (!(BRUTE = (t_brute*)malloc(sizeof(t_brute))))
 		ft_error("Malloc error");
-	if (!(BRUTE->brute = (int**)malloc(sizeof(int*) *
+	if (!(BRUTE->brute = (int**)malloc(sizeof(int*) * \
 		(DATA->flow * DATA->flow))))
 		ft_error("Malloc error");
 	if (!(BRUTE->chosen = (int*)malloc(sizeof(int) * (DATA->flow + 1))))
@@ -104,16 +104,16 @@ void	save_brute_bucket(t_lem *core, int i, int x)
 {
 	while (BRUTE->best_choice[i] != -1)
 	{
-		if (!(LINK->all_paths[LINK->bucket][i] = (int*)malloc(sizeof(int) *
+		if (!(LINK->all_paths[LINK->bucket][i] = (int*)malloc(sizeof(int) * \
 			(BRUTE->brute[BRUTE->best_choice[i]][0] + 1))))
 			ft_error("Malloc error");
 		while (BRUTE->brute[BRUTE->best_choice[i]][x] != LASTROOM)
 		{
-			LINK->all_paths[LINK->bucket][i][x] =
+			LINK->all_paths[LINK->bucket][i][x] = \
 			BRUTE->brute[BRUTE->best_choice[i]][x];
 			x += 1;
 		}
-		LINK->all_paths[LINK->bucket][i][x] =
+		LINK->all_paths[LINK->bucket][i][x] = \
 		BRUTE->brute[BRUTE->best_choice[i]][x];
 		LINK->cnt += 1;
 		LINK->total += 1;

@@ -21,22 +21,22 @@ int		print_all_paths(t_lem *core, int x, int i, int z)
 	ft_dprintf(FLAG->write_fd, "%{RED}Bucket: %d%{EOC}\n", DATA->best_bucket);
 	if (DATA->best)
 	{
-		ft_dprintf(FLAG->write_fd, "%{GREEN}Path %d: len = %d%{EOC}\n%s, ",
+		ft_dprintf(FLAG->write_fd, "%{GREEN}Path %d: len = %d%{EOC}\n%s, ", \
 					i, 1, ROOM[0]->name);
 		ft_dprintf(FLAG->write_fd, "%s\n", ROOM[LASTROOM]->name);
 		return (1);
 	}
 	while (z < LINK->amount[DATA->best_bucket])
 	{
-		ft_dprintf(FLAG->write_fd, "%{GREEN}Path %d: len = %d%{EOC}\n%s, ",
+		ft_dprintf(FLAG->write_fd, "%{GREEN}Path %d: len = %d%{EOC}\n%s, ", \
 			z + 1, LINK->all_paths[DATA->best_bucket][z][0], ROOM[0]->name);
 		while (LINK->all_paths[DATA->best_bucket][z][x] != LASTROOM)
 		{
-			ft_dprintf(FLAG->write_fd, "%s, ",
+			ft_dprintf(FLAG->write_fd, "%s, ", \
 						ROOM[LINK->all_paths[DATA->best_bucket][z][x]]->name);
 			x += 1;
 		}
-		ft_dprintf(FLAG->write_fd, "%s\n",
+		ft_dprintf(FLAG->write_fd, "%s\n", \
 					ROOM[LINK->all_paths[DATA->best_bucket][z][x]]->name);
 		x = 1;
 		z += 1;
@@ -56,7 +56,7 @@ void	show_structs(t_lem *core)
 	y = 0;
 	x = 1;
 	ft_dprintf(FLAG->write_fd, "%{RED}DATA structs:%{EOC}\n");
-	ft_dprintf(FLAG->write_fd, "Rooms are represented by id's from 0 to %d\n",
+	ft_dprintf(FLAG->write_fd, "Rooms are represented by id's from 0 to %d\n", \
 				LASTROOM);
 	ft_dprintf(FLAG->write_fd, "[ROOM id]:[(A)DJACENT, (F)LOW][...\n");
 	while (y < DATA->rooms)
@@ -64,7 +64,7 @@ void	show_structs(t_lem *core)
 		ft_dprintf(FLAG->write_fd, "[ROOM %2d]:", LINK->adj[y][0]);
 		while (LINK->adj[y][x] != -1)
 		{
-			ft_dprintf(FLAG->write_fd, "[A%d,F%d]", LINK->adj[y][x],
+			ft_dprintf(FLAG->write_fd, "[A%d,F%d]", LINK->adj[y][x], \
 						LINK->dinic[y][x]);
 			x += 1;
 		}
@@ -92,7 +92,7 @@ void	print_debug_info(t_lem *core)
 	ft_dprintf(FLAG->write_fd, "Total paths: %d\n", LINK->total);
 	ft_dprintf(FLAG->write_fd, "Paths used: %d, from best bucket: %d\n",
 				LINK->amount[DATA->best_bucket], DATA->best_bucket + 1);
-	ft_dprintf(FLAG->write_fd, "%{RED}Times:%{EOC}\nInput reading: %fs\n",
+	ft_dprintf(FLAG->write_fd, "%{RED}Times:%{EOC}\nInput reading: %fs\n", \
 				FLAG->input);
 	ft_dprintf(FLAG->write_fd, "Data processing: %fs\n", FLAG->data);
 	ft_dprintf(FLAG->write_fd, "Dinic's algorithm: %fs\n", FLAG->algo);

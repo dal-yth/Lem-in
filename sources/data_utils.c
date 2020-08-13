@@ -122,7 +122,7 @@ void		do_link(t_lem *core, int dest, int link)
 	{
 		if (LINK->adj[dest][i] == link)
 		{
-			ft_dprintf(2, "link1 = %s, link2 = %s\n",
+			ft_dprintf(2, "link1 = %s, link2 = %s\n", \
 						ROOM[dest]->name, ROOM[link]->name);
 			ft_error("Link error");
 		}

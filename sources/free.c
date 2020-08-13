@@ -67,11 +67,12 @@ void	free_brute(t_lem *core)
 	int i;
 
 	i = 0;
-	while (i < DATA->flow)
+	while (i < BRUTE->b_cnt)
 	{
 		free(BRUTE->brute[i]);
 		i += 1;
 	}
+	free(BRUTE->brute);
 }
 
 /*
@@ -88,16 +89,16 @@ void	free_structs(t_lem *core)
 	free(LINK->moves);
 	free(LINK->amount);
 	free(LINK->antprint);
-	free(BRUTE->chosen);
-	free(BRUTE->best_choice);
 	free_rooms_adj_dinic(core);
 	free_all_paths(core);
+	free(BRUTE->chosen);
+	free(BRUTE->best_choice);
 	free_brute(core);
+	free(BRUTE);
 	free(ROOM);
 	free(DATA);
 	free(FLAG);
 	free(LINK);
-	free(BRUTE);
 	free(core->time);
 	free(core);
 }

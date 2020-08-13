@@ -37,7 +37,7 @@ int		pathmath(t_lem *core, int **bucket, int z, int amount)
 	while (i < LINK->len[z])
 	{
 		DATA->worst = bucket[i][0];
-		DATA->new = (((bucket[i][0] + DATA->total) / (amount + 1)) +
+		DATA->new = (((bucket[i][0] + DATA->total) / (amount + 1)) + \
 		(DATA->ants / (amount + 1)));
 		if (DATA->worst <= DATA->cur_best && DATA->new <= DATA->cur_best)
 		{

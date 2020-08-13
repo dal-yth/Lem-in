@@ -59,6 +59,19 @@ t_lem	*init_core(t_lem *core)
 }
 
 /*
+** Inits values before we move ants.
+*/
+
+void	init_move(t_lem *core)
+{
+	LINK->overdrive = 0;
+	DATA->best_bucket = 0;
+	ROOM[0]->ant = 1;
+	LINK->rowcnt = 0;
+	LINK->pos = 0;
+}
+
+/*
 ** Error function.
 ** Gets error message from user, displays Error: user message.
 */

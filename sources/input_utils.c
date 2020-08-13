@@ -60,17 +60,17 @@ int				link_format(t_lem *core, int i)
 	j = i;
 	if (DATA->input[i] == 'L' || DATA->input[i] == ' ' || DATA->input[i] == '-')
 		ft_error("Wrong room name in link");
-	while (DATA->input[i] && DATA->input[i] != '-' &&
+	while (DATA->input[i] && DATA->input[i] != '-' && \
 			DATA->input[i] > 32 && DATA->input[i] < 127)
 		i += 1;
 	if (DATA->input[i] != '-')
 		ft_error("No link char found");
 	i += 1;
-	if (DATA->input[i] == 'L' || DATA->input[i] == ' ' ||
-		DATA->input[i] == '-' || DATA->input[i] == '#' ||
+	if (DATA->input[i] == 'L' || DATA->input[i] == ' ' || \
+		DATA->input[i] == '-' || DATA->input[i] == '#' || \
 		DATA->input[i] == '\n' || DATA->input[i] == '\0')
 		ft_error("Wrong room name in link");
-	while (DATA->input[i] && DATA->input[i] != '\n' &&
+	while (DATA->input[i] && DATA->input[i] != '\n' && \
 			DATA->input[i] > 32 && DATA->input[i] < 127)
 		i += 1;
 	DATA->links += 1;
@@ -104,7 +104,10 @@ void			verify_rooms(t_lem *core)
 
 	i = 0;
 	if (DATA->ants > INTMAX)
+	{
+		ft_dprintf(2, "10mil-50mil ants is realistic on small map.\n");
 		ft_error("Only up to INTMAX ants supported");
+	}
 	while (i < DATA->rooms)
 	{
 		j = i + 1;

@@ -56,7 +56,7 @@ void	move_ant(t_lem *core, int from, int to)
 		ROOM[from]->ant = 0;
 	else
 		ROOM[from]->ant += 1;
-	save_to_antprint(core, ROOM[to]->ant, ROOM[to]->name);
+	save_to_antprint(core, ROOM[to]->ant, ROOM[to]->name, 0);
 }
 
 /*
@@ -106,7 +106,7 @@ void	do_path(t_lem *core, int bucket, int *lens)
 		y += 1;
 	}
 	do_first_nodes(core, bucket, lens);
-	save_to_antprint(core, 0, "\n");
+	save_to_antprint(core, 0, "\n", 0);
 	LINK->rowcnt += 1;
 }
 
@@ -116,25 +116,25 @@ void	do_path(t_lem *core, int bucket, int *lens)
 
 int		move_ants(t_lem *core)
 {
-	int bucket;
 	int *lens;
 
 	if (DATA->best)
 		return (1);
-	DATA->best_bucket = 0;
-	ROOM[0]->ant = 1;
-	LINK->rowcnt = 0;
-	LINK->pos = 0;
-	bucket = pick_bucket(core);
-	DATA->best_bucket = bucket;
-	DATA->estimate = (int)LINK->moves[bucket];
-	LINK->mem = (DATA->ants * DATA->estimate * (3 + 2 + 2)
-	+ (DATA->estimate * LINK->amount[bucket]));
+	init_move(core);
+	DATA->best_bucket = pick_bucket(core);
+	DATA->estimate = (int)LINK->moves[DATA->best_bucket];
+	LINK->mem = (DATA->ants * DATA->estimate * (3 + 2 + 2) \
+	+ (DATA->estimate * LINK->amount[DATA->best_bucket]));
+	if (LINK->mem > MALLOC_MAX)
+	{
+		LINK->overdrive = 1;
+		LINK->mem = MALLOC_MAX;
+	}
 	if (!(LINK->antprint = (char *)malloc(sizeof(char) * LINK->mem)))
 		ft_error("Malloc error");
-	lens = get_lens(core, bucket, 0);
-	while (ants_in_hill(core, bucket))
-		do_path(core, bucket, lens);
+	lens = get_lens(core, DATA->best_bucket, 0);
+	while (ants_in_hill(core, DATA->best_bucket))
+		do_path(core, DATA->best_bucket, lens);
 	LINK->antprint[LINK->pos] = '\0';
 	FLAG->ants = timer(core->time, 3);
 	FLAG->total = timer(core->time, 4);
