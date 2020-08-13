@@ -58,6 +58,9 @@ void	show_structs(t_lem *core)
 	ft_dprintf(FLAG->write_fd, "%{RED}DATA structs:%{EOC}\n");
 	ft_dprintf(FLAG->write_fd, "Rooms are represented by id's from 0 to %d\n", \
 				LASTROOM);
+	ft_dprintf(FLAG->write_fd, "Flow: F1, F0, F-1 represent direction ");
+	ft_dprintf(FLAG->write_fd, "between rooms.\nF1 == flow TO adjacent. ");
+	ft_dprintf(FLAG->write_fd, " F0 == no flow. F-1 == flow FROM adjacent.\n");
 	ft_dprintf(FLAG->write_fd, "[ROOM id]:[(A)DJACENT, (F)LOW][...\n");
 	while (y < DATA->rooms)
 	{
