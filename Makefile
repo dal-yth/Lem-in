@@ -4,6 +4,8 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
+MKDIR_P = mkdir -p
+
 DIR_S = sources
 
 DIR_O = obj
@@ -17,22 +19,26 @@ LIBFT = libft/libft.a
 
 INC = includes/
 
-SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
-
 OBJ = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
 
-all: $(NAME)
+PROGRESS_CHAR = "\e[92m█\e[0m"
+
+all: dirs $(NAME)
 
 $(NAME): $(OBJ)
-	@echo "Compiling library..."
+	@echo "\nCompiling library..."
 	@cd libft && make
 	@echo "Creating executable..."
 	@$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(LIBFT)
-	@echo "$(NAME) created."
+	@echo "\e[1m$(NAME) created!\e[0m"
+
+dirs:
+	@echo "Creating object dir..."
+	@${MKDIR_P} ${DIR_O}
 
 $(DIR_O)/%.o: $(DIR_S)/%.c
-	@mkdir -p $(DIR_O)
 	@$(CC) $(FLAGS) -I $(INC) -o $@ -c $<
+	@echo $(PROGRESS_CHAR)"\c"
 
 clean:
 	@echo "Removing libft objects..."
@@ -50,4 +56,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re dirs

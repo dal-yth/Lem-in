@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   timer.h                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmakela <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 16:07:51 by jmakela           #+#    #+#             */
-/*   Updated: 2020/03/11 13:39:14 by jmakela          ###   ########.fr       */
+/*   Created: 2019/10/26 13:36:00 by jmakela           #+#    #+#             */
+/*   Updated: 2020/07/28 19:08:01 by jmakela          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TIMER_H
-# define TIMER_H
-
-# include "libft.h"
-# include <time.h>
+#include "libft.h"
 
 /*
-** Timer struct
-** holds start time,
-** end time and total time.
+** Compares strings s1 and s2.
+** Returns int less than, equal, or greater than zero if s1 is found,
+** to be less than, equal, or greater than s2.
 */
 
-typedef struct	s_clock
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	clock_t		init;
-	clock_t		start;
-	clock_t		end;
-	double		total;
-}				t_clock;
-
-double			timer(t_clock *time, int start);
-
-#endif
+	if (!n)
+		return (0);
+	while (n--)
+	{
+		if (*s1 != *s2++)
+			return (*(unsigned char *)s1 - *(unsigned char *)--s2);
+		if (!*s1++)
+			break ;
+	}
+	return (0);
+}
